@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
   <link rel="icon" type="image/svg+xml" href="./public/logo-p-v-transparente.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
       --accent: #a3e635;
@@ -26,6 +29,7 @@
       --text-main: #f3f4f6;
       --text-secondary: #9ca3af;
       --text-muted: #6b7280;
+      --logo-color: #ffffff;
     }
 
     html.light {
@@ -44,10 +48,19 @@
       --accent-muted: rgba(101, 163, 13, 0.12);
       --accent-glow: rgba(101, 163, 13, 0.25);
       --accent-text: #ffffff;
+      --logo-color: #0f172a;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-main);
       color: var(--text-main);
@@ -56,141 +69,698 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       line-height: 1.5;
     }
-    h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
     /* Container */
-    .max-w-6xl { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
-    .max-w-7xl { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+    .max-w-6xl {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .max-w-7xl {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
     /* Floating Header */
     header {
-      position: fixed; top: 16px; left: 0; right: 0; z-index: 50; padding: 0 16px; pointer-events: none;
+      position: fixed;
+      top: 16px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 0 16px;
+      pointer-events: none;
     }
+
     .header-pill {
-      max-width: 1150px; margin: 0 auto; padding: 12px 24px; border-radius: 9999px;
-      background: rgba(18, 18, 26, 0.85); backdrop-filter: blur(16px);
-      border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;
-      pointer-events: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      background: rgba(18, 18, 26, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
     }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 1.1rem; }
-    .brand img { width: 32px; height: 32px; object-fit: contain; }
 
-    nav { display: flex; gap: 8px; background: rgba(10, 10, 13, 0.5); padding: 4px; border-radius: 9999px; border: 1px solid var(--border-subtle); }
-    nav a { text-decoration: none; color: var(--text-secondary); padding: 6px 14px; border-radius: 9999px; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; }
-    nav a:hover { color: var(--accent); background: var(--accent-muted); }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
 
-    .controls { display: flex; gap: 8px; align-items: center; }
-    .btn-ctrl { background: var(--bg-main); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 6px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-    .btn-ctrl:hover { border-color: var(--accent); }
+    .brand img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .logo-mark {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-color: var(--logo-color);
+      -webkit-mask: url('./public/logo-p-v-transparente.svg') center / contain no-repeat;
+      mask: url('./public/logo-p-v-transparente.svg') center / contain no-repeat;
+      flex-shrink: 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .logo-mark.lg {
+      width: 48px;
+      height: 48px;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      background: rgba(10, 10, 13, 0.5);
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      background: var(--accent-muted);
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-ctrl {
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-ctrl:hover {
+      border-color: var(--accent);
+    }
 
     /* Hero Section */
-    .hero { padding-top: 160px; padding-bottom: 80px; position: relative; }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; }
-    .tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: var(--bg-card); border: 1px solid var(--border-subtle); font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
-    .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-    .hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
-    .hero p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 580px; }
-    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      position: relative;
+    }
 
-    .btn-primary { background: var(--accent); color: var(--accent-text); padding: 14px 28px; border-radius: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s; }
-    .btn-primary:hover { transform: translateY(-2px); }
-    .btn-secondary { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle); padding: 14px 28px; border-radius: 16px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; }
-    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
 
-    .hero-photo-card { position: relative; width: 100%; aspect-ratio: 4/5; border-radius: 24px; padding: 12px; background: var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
-    .hero-photo-inner { width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #000; position: relative; }
-    .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
-    .photo-badge { position: absolute; bottom: 16px; left: 16px; right: 16px; padding: 16px; border-radius: 16px; background: rgba(18, 18, 26, 0.9); backdrop-filter: blur(8px); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
 
-    .highlights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
-    .hl-card { padding: 20px; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border-subtle); }
-    .hl-label { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; }
-    .hl-val { font-size: 0.95rem; font-weight: 700; }
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 14px 28px;
+      border-radius: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 28px;
+      border-radius: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-photo-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      padding: 12px;
+      background: var(--accent);
+      box-shadow: 0 0 40px var(--accent-glow);
+    }
+
+    .hero-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+
+    .hero-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(18, 18, 26, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .hl-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hl-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hl-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
 
     /* Marquee */
-    .marquee-wrap { padding: 28px 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); overflow: hidden; background: rgba(18,18,26,0.3); }
-    .marquee-track { display: flex; gap: 32px; width: max-content; animation: scroll 30s linear infinite; }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .marquee-item { padding: 10px 20px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-subtle); font-size: 0.95rem; font-weight: 600; white-space: nowrap; }
+    .marquee-wrap {
+      padding: 28px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
+      background: rgba(18, 18, 26, 0.3);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 32px;
+      width: max-content;
+      animation: scroll 30s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-item {
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.95rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
 
     /* Projects */
-    .section-title { margin-bottom: 48px; }
-    .section-tag { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); display: block; margin-bottom: 8px; }
-    .section-title h2 { font-size: 2.8rem; font-weight: 800; }
+    .section-title {
+      margin-bottom: 48px;
+    }
 
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .proj-card { border-radius: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s; }
-    .proj-card:hover { border-color: var(--border-hover); transform: translateY(-6px); box-shadow: 0 20px 30px rgba(0,0,0,0.5); }
-    .proj-img { width: 100%; height: 220px; position: relative; overflow: hidden; background: #050508; }
-    .proj-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .proj-card:hover .proj-img img { transform: scale(1.05); }
-    .proj-body { padding: 24px; }
-    .proj-body h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
-    .proj-body p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .chip { padding: 4px 12px; border-radius: 8px; background: var(--bg-main); border: 1px solid var(--border-subtle); font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); }
-    .proj-footer { padding: 16px 24px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; }
-    .proj-footer a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; }
-    .proj-footer a:hover { color: var(--accent); }
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .proj-card {
+      border-radius: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+
+    .proj-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .proj-img {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #050508;
+    }
+
+    .proj-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .proj-card:hover .proj-img img {
+      transform: scale(1.05);
+    }
+
+    .proj-body {
+      padding: 24px;
+    }
+
+    .proj-body h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .proj-body p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .chip {
+      padding: 4px 12px;
+      border-radius: 8px;
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .proj-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .proj-footer a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .proj-footer a:hover {
+      color: var(--accent);
+    }
 
     /* About Section */
-    .about-card { padding: 48px; border-radius: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle); max-width: 900px; margin: 0 auto; }
-    .about-card p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 20px; }
+    .about-card {
+      padding: 48px;
+      border-radius: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-card p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
 
     /* Skills Section */
-    .skills-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .skill-cat { padding: 32px; border-radius: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle); }
-    .skill-cat h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle); }
-    .skills-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .skill-chip { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; background: var(--bg-main); border: 1px solid var(--border-subtle); font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
-    .skill-chip:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .skill-chip img { width: 20px; height: 20px; object-fit: contain; }
+    .skills-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .skill-cat {
+      padding: 32px;
+      border-radius: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .skill-cat h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .skills-chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .skill-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--bg-main);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .skill-chip img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
 
     /* Experience */
-    .timeline { border-left: 2px solid var(--border-subtle); padding-left: 32px; margin-left: 16px; }
-    .timeline-item { position: relative; margin-bottom: 32px; }
-    .timeline-dot { position: absolute; left: -41px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 4px solid var(--bg-main); }
-    .exp-card { padding: 32px; border-radius: 24px; background: var(--bg-card); border: 1px solid var(--border-subtle); }
-    .exp-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
-    .exp-role { font-size: 1rem; color: var(--accent); font-weight: 600; margin-bottom: 16px; }
-    .exp-card ul { padding-left: 20px; color: var(--text-secondary); font-size: 0.95rem; }
-    .exp-card li { margin-bottom: 12px; }
+    .timeline {
+      border-left: 2px solid var(--border-subtle);
+      padding-left: 32px;
+      margin-left: 16px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -41px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 4px solid var(--bg-main);
+    }
+
+    .exp-card {
+      padding: 32px;
+      border-radius: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .exp-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .exp-card ul {
+      padding-left: 20px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .exp-card li {
+      margin-bottom: 12px;
+    }
 
     /* Footer / Contact (Arthur Morais Style) */
-    footer { padding: 80px 0 40px; border-top: 1px solid var(--border-subtle); background: var(--bg-main); }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 60px; border-bottom: 1px solid var(--border-subtle); }
-    .footer-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-    .footer-brand img { width: 48px; height: 48px; }
-    .status-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 9999px; background: var(--bg-card); border: 1px solid var(--border-subtle); font-size: 0.8rem; font-weight: 600; margin-top: 16px; }
-    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+    footer {
+      padding: 80px 0 40px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-main);
+    }
 
-    .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 20px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 12px; }
-    .footer-col a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--accent); }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
 
-    .footer-bottom { padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); }
-    .btn-top { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-subtle); padding: 8px 20px; border-radius: 9999px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.2s; }
-    .btn-top:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .btn-top {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-top:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .projects-grid, .skills-3col, .footer-grid { grid-template-columns: 1fr; }
-      .highlights-grid { grid-template-columns: 1fr 1fr; }
-      .hero h1 { font-size: 2.8rem; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid,
+      .skills-3col,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Floating Header -->
   <header>
     <div class="header-pill">
       <a href="#home" class="brand">
-        <img src="./public/logo-p-v-transparente.svg" alt="Logo PV">
-        <span>Paulo Victor</span>
+        <span class="logo-mark lg" role="img" aria-label="Logo PV"></span> <span>Paulo Victor</span>
       </a>
 
       <nav>
@@ -218,7 +788,8 @@
           <span>Front-end · React &amp; TypeScript</span>
         </div>
         <h1>Transformo layouts em aplicações reais.</h1>
-        <p>Desenvolvedor front-end focado em interfaces modernas, responsivas e funcionais — com React, Next.js e TypeScript, e atenção real à experiência de quem usa.</p>
+        <p>Desenvolvedor front-end focado em interfaces modernas, responsivas e funcionais — com React, Next.js e
+          TypeScript, e atenção real à experiência de quem usa.</p>
 
         <div class="hero-ctas">
           <a href="#projetos" class="btn-primary">Ver projetos →</a>
@@ -306,7 +877,8 @@
           </div>
           <div class="proj-body">
             <h3>Yu-Gi-Oh! Store</h3>
-            <p>Loja de cartas com listagem, filtros avançados, paginação e carrinho de compras com persistência em localStorage, integrado a uma API REST.</p>
+            <p>Loja de cartas com listagem, filtros avançados, paginação e carrinho de compras com persistência em
+              localStorage, integrado a uma API REST.</p>
             <div class="proj-tags">
               <span class="chip">React</span>
               <span class="chip">Vite</span>
@@ -328,7 +900,8 @@
           </div>
           <div class="proj-body">
             <h3>Pokédex App</h3>
-            <p>Sistema interativo de captura de Pokémons: busca aleatória, modal de detalhes, sidebar de capturados e limite inteligente de capturas por sessão.</p>
+            <p>Sistema interativo de captura de Pokémons: busca aleatória, modal de detalhes, sidebar de capturados e
+              limite inteligente de capturas por sessão.</p>
             <div class="proj-tags">
               <span class="chip">React</span>
               <span class="chip">JavaScript</span>
@@ -349,7 +922,8 @@
           </div>
           <div class="proj-body">
             <h3>RPG Game</h3>
-            <p>Jogo web 2D com movimentação de personagem pelo cenário e interações visuais, desenvolvido com foco em gerenciamento de estado e lógica de interface.</p>
+            <p>Jogo web 2D com movimentação de personagem pelo cenário e interações visuais, desenvolvido com foco em
+              gerenciamento de estado e lógica de interface.</p>
             <div class="proj-tags">
               <span class="chip">TypeScript</span>
               <span class="chip">React</span>
@@ -369,7 +943,8 @@
           </div>
           <div class="proj-body">
             <h3>Dev Movies</h3>
-            <p>Plataforma web de filmes e séries com busca dinâmica, categorias e navegação fluida por catálogo consumido diretamente de API externa.</p>
+            <p>Plataforma web de filmes e séries com busca dinâmica, categorias e navegação fluida por catálogo
+              consumido diretamente de API externa.</p>
             <div class="proj-tags">
               <span class="chip">JavaScript</span>
               <span class="chip">HTML/CSS</span>
@@ -390,7 +965,8 @@
           </div>
           <div class="proj-body">
             <h3>FPR Animes</h3>
-            <p>Catálogo completo de animes construído consumindo a API pública do Kitsu, com implementação de alta fidelidade baseada em protótipo do Figma.</p>
+            <p>Catálogo completo de animes construído consumindo a API pública do Kitsu, com implementação de alta
+              fidelidade baseada em protótipo do Figma.</p>
             <div class="proj-tags">
               <span class="chip">JavaScript</span>
               <span class="chip">API REST</span>
@@ -410,8 +986,11 @@
     <div class="about-card">
       <span class="section-tag">Trajetória</span>
       <h2 style="font-size: 2.2rem; font-weight:800; margin-bottom: 24px;">Sobre mim</h2>
-      <p>Desenvolvedor Front-End especialista em criar interfaces modernas, responsivas e funcionais utilizando React, Next.js e TypeScript.</p>
-      <p>Atuo no desenvolvimento de sistemas corporativos reais, desde a especificação e definição do Design System até a entrega em produção com arquitetura de Micro Frontends, testes unitários com Jest e integração contínua (CI/CD).</p>
+      <p>Desenvolvedor Front-End especialista em criar interfaces modernas, responsivas e funcionais utilizando React,
+        Next.js e TypeScript.</p>
+      <p>Atuo no desenvolvimento de sistemas corporativos reais, desde a especificação e definição do Design System até
+        a entrega em produção com arquitetura de Micro Frontends, testes unitários com Jest e integração contínua
+        (CI/CD).</p>
     </div>
   </section>
 
@@ -432,7 +1011,8 @@
           <div class="skill-chip"><img src="./public/typescript-icon.svg" alt="TypeScript"><span>TypeScript</span></div>
           <div class="skill-chip"><img src="./public/javascript.svg" alt="JavaScript"><span>JavaScript</span></div>
           <div class="skill-chip"><img src="./public/html-5.svg" alt="HTML5"><span>HTML5</span></div>
-          <div class="skill-chip"><img src="./public/tailwindcss-icon.svg" alt="Tailwind"><span>Tailwind CSS</span></div>
+          <div class="skill-chip"><img src="./public/tailwindcss-icon.svg" alt="Tailwind"><span>Tailwind CSS</span>
+          </div>
         </div>
       </div>
 
@@ -473,8 +1053,16 @@
           <h3>New Qi</h3>
           <div class="exp-role">Desenvolvedor Front-End • Set/2025 – Jul/2026</div>
           <ul>
-            <li><strong>Sistema de Gestão de Rateio (Micro Frontends):</strong> Desenvolvimento e evolução de sistema corporativo complexo para gestão de rateio de CNPJ e centros de custo com React e TypeScript em arquitetura de Micro Frontends. Integração de APIs REST, regras de negócio avançadas e cobertura de testes unitários com Jest. Atuação direta com code review rigoroso e pair programming em fluxo ágil com Azure DevOps.</li>
-            <li><strong>Plataforma de Vagas para Profissionais de Tecnologia:</strong> Atuação integral da implementação até a entrega final em produção utilizando React, JavaScript e consumo de APIs REST. Definição da arquitetura de componentes alinhada ao Design System institucional. Upload/download de currículos, navegação condicional por perfil de usuário e autenticação corporativa via Keycloak. Destaque para a resolução de mais de 20 bugs críticos em uma única sprint (1 semana).</li>
+            <li><strong>Sistema de Gestão de Rateio (Micro Frontends):</strong> Desenvolvimento e evolução de sistema
+              corporativo complexo para gestão de rateio de CNPJ e centros de custo com React e TypeScript em
+              arquitetura de Micro Frontends. Integração de APIs REST, regras de negócio avançadas e cobertura de testes
+              unitários com Jest. Atuação direta com code review rigoroso e pair programming em fluxo ágil com Azure
+              DevOps.</li>
+            <li><strong>Plataforma de Vagas para Profissionais de Tecnologia:</strong> Atuação integral da implementação
+              até a entrega final em produção utilizando React, JavaScript e consumo de APIs REST. Definição da
+              arquitetura de componentes alinhada ao Design System institucional. Upload/download de currículos,
+              navegação condicional por perfil de usuário e autenticação corporativa via Keycloak. Destaque para a
+              resolução de mais de 20 bugs críticos em uma única sprint (1 semana).</li>
           </ul>
         </div>
       </div>
@@ -488,13 +1076,14 @@
         <!-- Col 1: Brand & Status -->
         <div>
           <div class="footer-brand">
-            <img src="./public/logo-p-v-transparente.svg" alt="Logo PV">
+            <span class="logo-mark lg" role="img" aria-label="Logo PV"></span>
             <div>
               <h3 style="font-size: 1.4rem; font-weight:800;">Paulo Victor</h3>
               <span style="font-size:0.75rem; color:var(--accent); font-weight:700;">DESENVOLVEDOR FRONT-END</span>
             </div>
           </div>
-          <p style="font-size:0.9rem; color:var(--text-secondary);">Desenvolvedor front-end focado em interfaces modernas, responsivas e funcionais.</p>
+          <p style="font-size:0.9rem; color:var(--text-secondary);">Desenvolvedor front-end focado em interfaces
+            modernas, responsivas e funcionais.</p>
           <div class="status-badge">
             <span class="status-dot"></span>
             <span>Disponível para novos projetos</span>
@@ -564,4 +1153,5 @@
     });
   </script>
 </body>
+
 </html>
