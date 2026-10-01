@@ -1,0 +1,16 @@
+export const marqueeTechnologies = [
+  'React',
+  'Next.js',
+  'TypeScript',
+  'JavaScript',
+  'HTML5',
+  'CSS3',
+  'Tailwind CSS',
+  'Node.js',
+  'Jest',
+  'Git',
+  'GitHub Actions',
+  'Azure DevOps',
+  'Keycloak',
+  'REST API',
+];
