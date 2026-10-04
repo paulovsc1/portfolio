@@ -7,6 +7,7 @@
   --accent-muted: rgba(163, 230, 53, 0.15);
   --accent-glow: rgba(163, 230, 53, 0.35);
   --accent-text: #0a0a0d;
+  --logo-color: #ffffff;
 
   /* Dark Theme Default */
   --bg-main: #0a0a0d;
@@ -42,6 +43,7 @@ html.light {
   --accent-muted: rgba(101, 163, 13, 0.12);
   --accent-glow: rgba(101, 163, 13, 0.25);
   --accent-text: #ffffff;
+  --logo-color: #0f172a;
 }
 
 html {
@@ -61,7 +63,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4, .font-display {
+h1,
+h2,
+h3,
+h4,
+.font-display {
   font-family: var(--font-display);
 }
 
@@ -69,16 +75,20 @@ h1, h2, h3, h4, .font-display {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-main);
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 5px;
 }
+
 html.light ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.2);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
@@ -95,6 +105,7 @@ html.light ::-webkit-scrollbar-thumb {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -139,4 +150,14 @@ html.light ::-webkit-scrollbar-thumb {
 
 .accent-glow {
   box-shadow: 0 0 25px var(--accent-glow);
+}
+
+/* Logo PV colorido por máscara (segue o tema) */
+.logo-mark {
+  display: block;
+  flex-shrink: 0;
+  background-color: var(--logo-color);
+  -webkit-mask: url('/logo-p-v-transparente.svg') center / contain no-repeat;
+  mask: url('/logo-p-v-transparente.svg') center / contain no-repeat;
+  transition: background-color 0.3s ease;
 }
