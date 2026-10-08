@@ -6,7 +6,6 @@ export const marqueeTechnologies = [
   'HTML5',
   'CSS3',
   'Tailwind CSS',
-  'Node.js',
   'Jest',
   'Git',
   'GitHub Actions',

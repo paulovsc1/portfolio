@@ -7,7 +7,6 @@ import { contactData } from '@/data/contact';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Check, Copy, Mail, MapPin, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/Icons';
-import { LogoMark } from '@/components/LogoMark';
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -40,7 +39,13 @@ export const Contact: React.FC = () => {
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] p-2 flex items-center justify-center shadow-lg">
-                 <LogoMark className="w-full h-full" />
+                  <Image
+                    src="/logo-p-v-transparente.svg"
+                    alt="Logo Paulo Victor"
+                    width={48}
+                    height={48}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
                 <div>
                   <h2 className="font-display text-2xl sm:text-3xl font-black text-[var(--text-main)] tracking-tight">
@@ -146,11 +151,7 @@ export const Contact: React.FC = () => {
 
               <div className="flex items-center gap-2 text-[var(--text-secondary)]">
                 <MapPin className="w-4 h-4 text-[var(--accent)]" />
-                <span>
-                  {language === 'pt'
-                    ? 'Brasil • Remoto/Híbrido/Presencial'
-                    : 'Brazil • Remote/Hybrid/On-site'}
-                </span>
+                <span>Brasil • Remoto</span>
               </div>
 
               {/* Copy Email Button */}

@@ -28,8 +28,8 @@ export const skillsDetailedData: SkillCategoryDetailed[] = [
   },
   {
     title: {
-      pt: 'Backend & APIs',
-      en: 'Backend & APIs',
+      pt: 'Testes & APIs',
+      en: 'Testing & APIs',
     },
     skills: [
       { name: 'Jest (Testes)', icon: '/jest.svg' },

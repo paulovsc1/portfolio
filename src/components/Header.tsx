@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import { Moon, Sun, Globe, Menu, X } from 'lucide-react';
-import { LogoMark } from '@/components/LogoMark';
 
 export const Header: React.FC = () => {
   const { t, language, toggleLanguage } = useLanguage();
@@ -46,7 +45,14 @@ export const Header: React.FC = () => {
             className="group flex items-center gap-3 font-display text-lg sm:text-xl font-bold tracking-tight text-[var(--text-main)] hover:opacity-90 transition-opacity"
           >
             <div className="relative w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform">
-             <LogoMark className="w-full h-full" />
+              <Image
+                src="/logo-p-v-transparente.svg"
+                alt="Logo PV"
+                width={32}
+                height={32}
+                className="object-contain w-full h-full"
+                priority
+              />
             </div>
             <span className="hidden sm:inline font-bold">Paulo Victor</span>
           </a>
