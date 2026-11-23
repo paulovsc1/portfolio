@@ -21,7 +21,7 @@ export const heroData: HeroData = {
     pt: 'Baixar currículo',
     en: 'Download resume',
   },
-  resumePath: '/Paulo_Victor_Curriculo.pdf',
+  resumePath: '/Curriculo_Paulo_Victor_Front-End.pdf',
   highlights: {
     pt: [
       { label: 'Atuação', value: 'Desenvolvimento Front-End' },

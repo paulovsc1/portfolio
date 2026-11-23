@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
 
               <a
                 href={data.resumePath}
-                download="Paulo_Victor_Curriculo.pdf"
+                download="Curriculo_Paulo_Victor_Front-End.pdf"
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-semibold text-base border border-[var(--border-subtle)] bg-[var(--bg-card)] text-[var(--text-main)] hover:border-[var(--accent)] hover:bg-[var(--bg-card-hover)] transition-all hover:scale-105"
               >
                 <Download className="w-5 h-5 text-[var(--accent)]" />
