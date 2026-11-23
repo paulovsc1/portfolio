@@ -19,12 +19,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Paulo Victor | Desenvolvedor Front-End',
   description:
-    'Portfólio pessoal de Paulo Victor da Silva Carlos. Desenvolvedor Front-End especializado em React, Next.js, TypeScript e Micro Frontends.',
+    'Portfólio pessoal de Paulo Victor da Silva Carlos. Desenvolvedor Front-End especializado em React, Angular, TypeScript e Micro Frontends.',
   keywords: [
     'Paulo Victor',
     'Desenvolvedor Front-End',
     'React',
-    'Next.js',
+    'Angular',
     'TypeScript',
     'Tailwind CSS',
     'Micro Frontends',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Paulo Victor | Desenvolvedor Front-End',
     description:
-      'Desenvolvedor Front-End focado em interfaces modernas, responsivas e funcionais com React, Next.js e TypeScript.',
+      'Desenvolvedor Front-End focado em interfaces modernas, responsivas e funcionais com React, Angular e TypeScript.',
     url: 'https://paulovictor.dev',
     siteName: 'Paulo Victor Portfolio',
     locale: 'pt_BR',

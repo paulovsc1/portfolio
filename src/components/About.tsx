@@ -37,7 +37,7 @@ export const About: React.FC = () => {
           <div className="pt-6 border-t border-[var(--border-subtle)] flex flex-wrap gap-3">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-main)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-main)]">
               <Code className="w-4 h-4 text-[var(--accent)]" />
-              <span>React, Next.js & TypeScript</span>
+              <span>React, Angular & TypeScript</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-main)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-main)]">
               <Cpu className="w-4 h-4 text-[var(--accent)]" />

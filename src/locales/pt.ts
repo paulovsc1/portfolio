@@ -10,7 +10,7 @@ export const pt = {
   hero: {
     tag: 'Front-end · React & TypeScript',
     title: 'Transformo layouts em aplicações reais.',
-    subtitle: 'Desenvolvedor front-end focado em interfaces modernas, responsivas e funcionais — com React, Next.js e TypeScript, e atenção real à experiência de quem usa.',
+    subtitle: 'Desenvolvedor front-end focado em interfaces modernas, responsivas e funcionais — com React, Angular e TypeScript, e atenção real à experiência de quem usa.',
     ctaProjects: 'Ver projetos',
     ctaResume: 'Baixar currículo',
     highlightsTitle: 'Principais Destaques',

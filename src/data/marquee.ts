@@ -1,6 +1,6 @@
 export const marqueeTechnologies = [
   'React',
-  'Next.js',
+  'Angular',
   'TypeScript',
   'JavaScript',
   'HTML5',

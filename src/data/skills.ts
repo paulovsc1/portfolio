@@ -19,7 +19,7 @@ export const skillsDetailedData: SkillCategoryDetailed[] = [
     },
     skills: [
       { name: 'React', icon: '/react.svg' },
-      { name: 'Next.js', icon: '/nextjs-icon.svg' },
+      { name: 'Angular', icon: '/angular-icon.svg' },
       { name: 'TypeScript', icon: '/typescript-icon.svg' },
       { name: 'JavaScript', icon: '/javascript.svg' },
       { name: 'HTML5', icon: '/html-5.svg' },

@@ -8,10 +8,10 @@ export const experienceData: ExperienceItem[] = [
       en: 'Front-End Developer',
     },
     period: {
-      pt: 'Set/2025 – Jul/2026',
-      en: 'Sep/2025 – Jul/2026',
+      pt: 'Set/2025 – Nov/2026',
+      en: 'Sep/2025 – Nov/2026',
     },
-    location: 'Brasil (Remoto)',
+    location: 'Brasil (Híbrido)',
     description: {
       pt: [
         'Sistema de Gestão de Rateio (Micro Frontends): Desenvolvimento e evolução de sistema corporativo complexo para gestão de rateio de CNPJ e centros de custo com React e TypeScript em arquitetura de Micro Frontends. Integração de APIs REST, regras de negócio avançadas e cobertura de testes unitários com Jest. Atuação direta com code review rigoroso e pair programming em fluxo ágil com Azure DevOps.',

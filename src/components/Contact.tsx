@@ -151,7 +151,11 @@ export const Contact: React.FC = () => {
 
               <div className="flex items-center gap-2 text-[var(--text-secondary)]">
                 <MapPin className="w-4 h-4 text-[var(--accent)]" />
-                <span>Brasil • Remoto</span>
+                <span>
+                  {language === 'pt'
+                    ? 'Brasil • Remoto, Híbrido e Presencial'
+                    : 'Brazil • Remote, Hybrid & On-site'}
+                </span>
               </div>
 
               {/* Copy Email Button */}

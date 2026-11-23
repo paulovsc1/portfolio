@@ -12,7 +12,7 @@ export const en: Dictionary = {
   hero: {
     tag: 'Front-end · React & TypeScript',
     title: 'I turn layouts into real applications.',
-    subtitle: 'Front-end developer focused on modern, responsive, and functional interfaces — built with React, Next.js, and TypeScript, with a real focus on user experience.',
+    subtitle: 'Front-end developer focused on modern, responsive, and functional interfaces — built with React, Angular, and TypeScript, with a real focus on user experience.',
     ctaProjects: 'View projects',
     ctaResume: 'Download resume',
     highlightsTitle: 'Key Highlights',
